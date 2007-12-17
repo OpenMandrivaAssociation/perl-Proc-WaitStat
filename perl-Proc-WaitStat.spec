@@ -11,7 +11,6 @@ Source0:	http://search.cpan.org/CPAN/authors/id/R/RO/ROSCH/%{module}-%{version}.
 BuildRequires:	perl-devel
 BuildRequires:	perl-IPC-Signal
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This module contains functions for interpreting and acting on wait
