@@ -1,35 +1,36 @@
-%define module Proc-WaitStat
+%define upstream_name    Proc-WaitStat
+%define upstream_version 1.00
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 6
 
 Summary:	Proc::WaitStat - Interpret and act on wait() status values
-Name:		perl-%{module}
-Version:	1.00
-Release:	%mkrel 5
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/~rosch/Proc-WaitStat/
-Source0:	http://search.cpan.org/CPAN/authors/id/R/RO/ROSCH/%{module}-%{version}.tar.bz2
-BuildRequires:	perl-devel
-BuildRequires:	perl-IPC-Signal
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:    http://www.cpan.org/modules/by-module/Proc/%{upstream_name}-%{upstream_version}.tar.bz2
+
+BuildRequires:	perl(IPC::Signal)
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module contains functions for interpreting and acting on wait
 status values.
 
 %prep
-
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 
 %make
-make test
+%make test
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %makeinstall_std
 
 %clean 
@@ -40,5 +41,3 @@ make test
 %doc Changes README
 %{perl_vendorlib}/Proc/WaitStat.pm
 %{_mandir}/*/*
-
-
