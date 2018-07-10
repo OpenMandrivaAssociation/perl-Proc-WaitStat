@@ -4,7 +4,7 @@
 Summary:	Proc::WaitStat - Interpret and act on wait() status values
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	17
+Release:	18
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}/
